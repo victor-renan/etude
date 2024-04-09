@@ -1,20 +1,13 @@
-use gtk::prelude::*;
+mod app;
+mod ui;
 
-const APP_ID: &str = "org.etude.main";
+use gtk::{gio, glib};
+use app::App;
 
-fn main() -> gtk::glib::ExitCode {
+fn main() -> glib::ExitCode {
 
-    gtk::gio::resources_register_include!("resources.gresource")
+    gio::resources_register_include!("resources.gresource")
         .expect("Fail to load resources");
 
-    let app = gtk::Application::builder()
-        .application_id(APP_ID).build();
-
-    app.connect_activate(build_ui);
-    
-    app.run()
-}
-
-fn build_ui(app: &gtk::Application) {
-    
+    App::run()
 }
