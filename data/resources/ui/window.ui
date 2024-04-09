@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <template class="MainWindow" parent="GtkApplicationWindow">
-    <property name="title">My GTK App</property>
+    <property name="title">Etude</property>
+    <property name="default-width">960</property>
+    <property name="default-height">640</property>
+    <property name="width-request">640</property>
+    <property name="height-request">480</property>
+    <child>
+      <object class="GtkPaned" id="main_slider">
+        <property name="start-child">LeftPane</property>
+        <property name="end-child">RightPane</property>
+        <child>
+          <object class="GtkBox" id="left_pane">
+            <property name="width-request">240</property>
+            <child>
+              <object class="GtkLabel" id="req_title">
+                <property name="label">Requests</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="right_pane">
+            <property name="width-request">480</property>
+          </object>
+        </child>
+      </object>
+    </child>
   </template>
 </interface>
